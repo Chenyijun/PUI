@@ -1,0 +1,6 @@
+{
+  "names": ["Original", "Blackberry", "Walnut", "Original(GF)", "Pumpkin Spice", "Caramel Pecan"],
+  "glazes": ["None", "Sugar-milk", "Vanilla-milk", "Double-Chocolate"],
+  "quantities": [1, 3, 6, 12],
+  "price": 5
+}
