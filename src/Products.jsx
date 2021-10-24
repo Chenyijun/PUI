@@ -10,13 +10,12 @@ import {
 } from "react-router-dom";
 import Bun from './Bun';
 
-const Products = ({addItems}) => {
+const Products = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
   let match = useRouteMatch();
-  console.log(match.path)
   return (
       <Switch>
         <Route path={`${match.path}/:id`}>
-          <Bun addItems={addItems}/>
+          <Bun myBagItems={myBagItems} setMyBagItems={setMyBagItems} wishlistItems={wishlistItems} setWishlistItems={setWishlistItems} />
         </Route>
         <Route path={match.path}>
         <body>
