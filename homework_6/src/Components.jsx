@@ -1,5 +1,14 @@
 import styled from 'styled-components'
 
+export const NavBar = styled.nav`
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr min-content;
+  grid-gap: 1rem;
+  padding: 1rem 4rem;
+  align-items: center;
+  align-self: center;
+`
+
 export const HomeGrid = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
