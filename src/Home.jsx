@@ -25,11 +25,13 @@ const Home= () => {
             <p class="imageSubtitle">Featured Flavor: Original</p>
           </div>
         </HomeGrid>
-      <button class="centerButton brownButton">View Our Buns</button>
+        <Link to="/products">
+          <button class="centerButton brownButton">View Our Buns</button>
+        </Link>
       <br />
       <br />
       <div class="largeSection" id="visitSection">
-        <a href="visit.html">Visit Us</a>
+        <Link to="/visit">Visit Us</Link>
       </div>
       <div class="largeSection" id="contactSection">
         <a href="contact.html">Contact Us</a>

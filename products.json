@@ -1,5 +1,10 @@
 {
-  "names": ["Original", "Blackberry", "Walnut", "Original(GF)", "Pumpkin Spice", "Caramel Pecan"],
+  "items": [{"id": "original", "name": "Original", "image": ""},
+    {"id": "blackberry", "name":"Blackberry", "image":""},
+    {"id": "walnut", "name":"Walnut", "image":""},
+    {"id": "original-gf", "name":"Original (GF)", "image":""},
+    {"id": "Pumpkinspice", "name":"Pumpkin Spice", "image":""},
+    {"id": "caramelpecan", "name":"Caramel Pecan", "image":""}],
   "glazes": ["None", "Sugar-milk", "Vanilla-milk", "Double-Chocolate"],
   "quantities": [1, 3, 6, 12],
   "price": 5
