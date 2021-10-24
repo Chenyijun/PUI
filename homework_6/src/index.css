@@ -28,6 +28,12 @@ h1 {
 	font-weight: normal;
 }
 
+h2 {
+	font-family: 'Sacramento', cursive;
+	font-size: 2rem;
+	font-weight: normal;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

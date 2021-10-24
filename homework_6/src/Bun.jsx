@@ -1,4 +1,5 @@
 import React, { useEffect, useState }  from "react";
+import { Flex, TextButton } from './Components'
 import './App.css'
 
 import {
@@ -8,7 +9,7 @@ import {
   useParams,
 } from "react-router-dom";
 
-const Bun = ({addItems}) => {
+const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
   let { id } = useParams();
   let bun = getBunInfo(id) //get name and image from id
   const glazeOptions = ["None", "Sugar-milk", "Vanilla-milk", "Double-Chocolate"]
@@ -20,17 +21,16 @@ const Bun = ({addItems}) => {
   useEffect(() => { //change item whenever glaze or quantity is updated
     setItem({...item, "glaze": glaze, "quantity": quantity})
   }, [glaze, quantity])
-
-  console.log(item)
   return (
     <body>
       <div class="content" id="bunDetails">
-        <div class="breadcrumbs"><Link to="/products">Buns</Link> > {bun.name}</div>
+        <div class="breadcrumbs"><Link to="/products">Buns</Link> &gt; {bun.name}</div>
         <h1 id="lessMarginBottom">{bun.name}</h1>
         <div id="detailedBunGrid">
-          <div id="leftColumn">
+          <Flex align='start' direction='column'>
             <img id="detailedImage" src={bun.image} alt={bun.name}/>
-          </div>
+            <TextButton onClick={()=> setWishlistItems(item)}>Add to Wishlist</TextButton>
+          </Flex>
           <div id="rightColumn">
             <p>Glaze</p>
             <select name="glaze" id="glazeSelect" value={glaze} onChange={(e) => setGlaze(e.target.value)}>
@@ -43,7 +43,7 @@ const Bun = ({addItems}) => {
             <p>Price</p>
             <p>$5</p>
             <button class="brownButton" onClick={() => history.goBack()}>Back</button>
-            <button class="brownButton" onClick={() => addItems(item)}>Add to Bag</button>
+            <button class="brownButton" onClick={() => setMyBagItems([...myBagItems, item])}>Add to Bag</button>
           </div>
         </div>
       </div>

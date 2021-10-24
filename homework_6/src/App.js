@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,28 +12,33 @@ import Visit from './Visit.jsx'
 import Bag from './Bag.jsx'
 
 function App() {
-  let [bagItems, setBagItems] = useState([])
+  let [myBagItems, setMyBagItems] = useState([])
+  let [wishlistItems, setWishlistItems] = useState([])
+  console.log("Wishlist", wishlistItems)
+  console.log("mybag", myBagItems)
+  let [bagCount, setBagCount] = useState(0)
 
-  const addItem = (item) => {
-    setBagItems([...bagItems, item])
-  }
+  useEffect(() => { //update bagcount for nav
+    setBagCount(myBagItems.length)
+  }, [myBagItems])
+
   return (
     <Router>
     <div>
-      <Nav bagItems={bagItems} />
+      <Nav bagCount={bagCount} />
 
       <Switch>
         <Route path="/products">
-          <Products addItem={addItem}/>
-        </Route>
-        <Route path="/">
-          <Home />
+          <Products myBagItems={myBagItems} setMyBagItems={setMyBagItems} wishlistItems={wishlistItems} setWishlistItems={setWishlistItems} />
         </Route>
         <Route path="/visit">
           <Visit />
         </Route>
         <Route path="/bag">
           <Bag />
+        </Route>
+        <Route path="/">
+          <Home />
         </Route>
       </Switch>
     </div>
