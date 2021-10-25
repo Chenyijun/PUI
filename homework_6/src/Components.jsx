@@ -65,6 +65,12 @@ export const BrownButton = styled.button`
 `
 
 // Nav
+export const Logo = styled.div`
+  font-family: 'Sacramento', cursive;
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+`
 export const NavBar = styled.nav`
   display: grid;
   grid-template-columns: 4fr 1fr 1fr min-content;
