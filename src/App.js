@@ -14,8 +14,6 @@ import Bag from './Bag.jsx'
 function App() {
   let [myBagItems, setMyBagItems] = useState([])
   let [wishlistItems, setWishlistItems] = useState([])
-  console.log("Wishlist", wishlistItems)
-  console.log("mybag", myBagItems)
   let [bagCount, setBagCount] = useState(0)
 
   useEffect(() => { //update bagcount for nav
@@ -25,7 +23,7 @@ function App() {
   return (
     <Router>
     <div>
-      <Nav bagCount={bagCount} />
+      <Nav bagCount={bagCount} wishlistItems={wishlistItems}/>
 
       <Switch>
         <Route path="/products">
@@ -35,7 +33,7 @@ function App() {
           <Visit />
         </Route>
         <Route path="/bag">
-          <Bag />
+          <Bag wishlistItems={wishlistItems} />
         </Route>
         <Route path="/">
           <Home />

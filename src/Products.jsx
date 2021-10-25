@@ -5,8 +5,7 @@ import {
   Switch,
   Route,
   Link,
-  useRouteMatch,
-  useParams
+  useRouteMatch
 } from "react-router-dom";
 import Bun from './Bun';
 

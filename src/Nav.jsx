@@ -1,15 +1,21 @@
 import React, {useEffect} from "react";
 import {
-  Link
+  useLocation
 } from "react-router-dom";
-import { NavBar } from './Components'
+import { NavBar, BagCount, NavLink, StyledLink } from './Components'
 
 const Nav = ({bagCount}) => {
+  const location = useLocation()
+  const currentPath=location.pathname
+  
   return (
     <NavBar>
-      <Link to="/">Home</Link>
-      <Link to="/products">Buns</Link>
-      <Link to="/bag">{bagCount}</Link>
+      <StyledLink to="/"><NavLink active={currentPath==="/"}>Home</NavLink></StyledLink>
+      <StyledLink to="/products"><NavLink active={currentPath.indexOf("products") > -1}>Buns</NavLink></StyledLink>
+      <StyledLink to="/bag">
+        <BagCount>{bagCount}</BagCount>
+        <img id="bag" src="BagIcon.svg" alt="Bag"/>
+      </StyledLink>
     </NavBar>
   )
 }
