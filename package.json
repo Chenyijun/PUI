@@ -22,9 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "deploySubtree": "git subtree push --prefix homework_6 origin gh-pages"
+    "predeploy": "yarn run build",
+    "deploy": "yarn build && git subtree push --prefix homework_6 origin gh-pages"
   },
   "eslintConfig": {
     "extends": [
