@@ -19,39 +19,39 @@ const Products = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) 
         <div>
           <div id="bunGrid">
           <Link to="/products/original">
-                <div classNameName="card">
-                  <img classNameName="cardImage" src="https://images.unsplash.com/photo-1577385384956-7e9fab6f7e84?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1587&q=80" alt="Original Bun"/>
-                  <p classNameName="cardText">Original</p>
+                <div className="card">
+                  <img className="cardImage" src="https://images.unsplash.com/photo-1577385384956-7e9fab6f7e84?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1587&q=80" alt="Original Bun"/>
+                  <p className="cardText">Original</p>
                 </div>
               </Link>
               <Link to="/products/blackberry">
-                <div classNameName="card">
-                  <img classNameName="cardImage" src="https://images.unsplash.com/photo-1630182266697-92508c01e2d1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1760&q=80" alt="Blackberry Bun"/>
-                  <p classNameName="cardText">Blackberry</p>
+                <div className="card">
+                  <img className="cardImage" src="https://images.unsplash.com/photo-1630182266697-92508c01e2d1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1760&q=80" alt="Blackberry Bun"/>
+                  <p className="cardText">Blackberry</p>
                 </div>
               </Link>
               <Link to="/products/walnut">
-                <div classNameName="card">
-                  <img classNameName="cardImage" src="https://images.unsplash.com/photo-1593529323824-24cda51553e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1663&q=80" alt="Walnut Bun"/>
-                  <p classNameName="cardText">Walnut</p>
+                <div className="card">
+                  <img className="cardImage" src="https://images.unsplash.com/photo-1593529323824-24cda51553e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1663&q=80" alt="Walnut Bun"/>
+                  <p className="cardText">Walnut</p>
                 </div>
               </Link>
               <Link to="/products/originalgf">
-                <div classNameName="card">
-                  <img classNameName="cardImage" src="https://images.unsplash.com/photo-1603459872271-410a6697abcd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1586&q=80" alt="Original Bun (Gluten Free)"/>
-                  <p classNameName="cardText">Original (GF)</p>
+                <div className="card">
+                  <img className="cardImage" src="https://images.unsplash.com/photo-1603459872271-410a6697abcd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1586&q=80" alt="Original Bun (Gluten Free)"/>
+                  <p className="cardText">Original (GF)</p>
                 </div>
               </Link>
               <Link to="/products/pumpkinspice">
-                <div classNameName="card">
-                  <img classNameName="cardImage" src="https://images.unsplash.com/photo-1593872571314-4a735d4b27b0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1587&q=80" alt="Pumpkin Spice Bun"/>
-                  <p classNameName="cardText">Pumpkin Spice</p>
+                <div className="card">
+                  <img className="cardImage" src="https://images.unsplash.com/photo-1593872571314-4a735d4b27b0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1587&q=80" alt="Pumpkin Spice Bun"/>
+                  <p className="cardText">Pumpkin Spice</p>
                 </div>
               </Link>
               <Link to="/products/caramelpecan">
-                <div classNameName="card">
-                  <img classNameName="cardImage" src="https://images.unsplash.com/photo-1618256747711-c4195a69ceff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1587&q=80" alt="Caramel Pecan Bun"/>
-                  <p classNameName="cardText">Caramel Pecan</p>
+                <div className="card">
+                  <img className="cardImage" src="https://images.unsplash.com/photo-1618256747711-c4195a69ceff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1587&q=80" alt="Caramel Pecan Bun"/>
+                  <p className="cardText">Caramel Pecan</p>
                 </div>
               </Link>
             </div>
