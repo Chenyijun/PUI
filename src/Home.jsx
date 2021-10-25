@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {HomeGrid, Flex, ArrowButton, Image} from './Components'
 import './App.css'
 import {
-  BrowserRouter as Router,
   Link,
 } from "react-router-dom";
 

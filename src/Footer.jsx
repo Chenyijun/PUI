@@ -3,7 +3,6 @@ import './App.css';
 import {
   Link
 } from "react-router-dom";
-import { NavBar, BagCount, NavLink, StyledLink } from './Components'
 
 const Nav = () => {
   return (
