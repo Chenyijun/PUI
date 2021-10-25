@@ -9,7 +9,7 @@ const Visit = () => {
 				<p>Come visit us at our physical location: <br/> 1234 Bun Drive Pittsburgh, PA 15213</p>
 				<p>Our hours: <br/> Monday - Friday 7am - 2pm</p>
 			</div>
-			<img src="fakeMap.png" id="map" alt="Image of map of store"/>
+			<img src="fakeMap.png" id="map" alt="Map of store"/>
 		</div>
 	</div>
   )

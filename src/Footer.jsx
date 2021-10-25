@@ -1,4 +1,5 @@
 import React from "react";
+import { Footer } from './Components'
 import './App.css';
 import {
   Link
@@ -6,11 +7,11 @@ import {
 
 const Nav = () => {
   return (
-    <footer>
+    <Footer>
       <p><b>Bun Bun Bake Shop</b></p>
       <Link to="./visit">Visit</Link>
       <Link to="./contact">Contact Us</Link>
-	  </footer>
+	  </Footer>
   )
 }
 
