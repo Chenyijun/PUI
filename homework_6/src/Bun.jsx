@@ -4,7 +4,6 @@ import './App.css'
 import { getBunInfo } from './helperFunctions';
 
 import {
-  BrowserRouter as Router,
   Link,
   useHistory,
   useParams,
