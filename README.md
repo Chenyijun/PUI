@@ -2,7 +2,7 @@
 
 -Wishlist functionality works, can view wishlist in bag
 
--Caraousel on homepage, you can manually advnace or it will auto-advance after 7 seconds
+-Caraousel on homepage, you can manually advance or it will auto-advance after 7 seconds
 
 -Interesting/useful JS functionality
   -if you click on the wishlist item, a modal will pop up to add item to cart
