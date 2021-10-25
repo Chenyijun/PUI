@@ -14,7 +14,7 @@ const Bag = ({wishlistItems, myBagItems, setMyBagItems}) => {
   const [showNoItem, setShowNoItem] = useState(true)
   useEffect(() => { //change item whenever glaze or quantity is updated
     setShowNoItem(myBagItems.length < 1)
-  }, [myBagItems]) 
+  }, [myBagItems]) /* eslint react-hooks/exhaustive-deps: "off" */
 
   return (
     <PageWrapper>
@@ -88,7 +88,7 @@ const ModalContent = ({bun, myBagItems, setMyBagItems, setShowModal}) => {
         </select>
         <p>Price</p>
         <p>$5</p>
-        <button class="brownButton" onClick={() => addToBag()}>Add to Bag</button>
+        <button className="brownButton" onClick={() => addToBag()}>Add to Bag</button>
     </div>
     </TwoColGrid>
   )

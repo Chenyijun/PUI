@@ -15,35 +15,35 @@ const Home= () => {
 
   return (
     <div>
-      <div class="content">
+      <div className="content">
         <HomeGrid>
           <div id="homeContent">
             <h1>Bun Bun Bake Shop</h1>
             <p>We are a small bakery that specializes in cinnamon rolls, from our famous original cinnamon rolls to a variety of artisan flavors. Our shop is located in Pittsburgh, PA and we ship fresh rolls anywhere in the Pittsburgh area. Visitors to our site should be able to buy cinnamon rolls by different flavors. </p>
           </div>
           <div id="promo">
-          <p class="imageSubtitle">Featured Flavor</p>
+          <p className="imageSubtitle">Featured Flavor</p>
           <Flex align='center'>
             <ArrowButton onClick={() => setPromoIndex(promoIndex=== 0 ? 2 : promoIndex-1)}>&#10094;</ArrowButton>
               <Flex direction='column' align='center'>
                 <Link to={promoArray[promoIndex].url}>
                   <Image src={promoArray[promoIndex].image} alt={promoArray[promoIndex].name}/>
                 </Link>
-                <p class="imageSubtitle">{promoArray[promoIndex].name}</p>
+                <p className="imageSubtitle">{promoArray[promoIndex].name}</p>
               </Flex>
             <ArrowButton onClick={() => setPromoIndex(promoIndex=== 2 ? 0 : promoIndex+1)}>&#10095;</ArrowButton>
           </Flex>
           </div>
         </HomeGrid>
         <Link to="/products">
-          <button class="centerButton brownButton">View Our Buns</button>
+          <button className="centerButton brownButton">View Our Buns</button>
         </Link>
       <br />
       <br />
-      <div class="largeSection" id="visitSection">
+      <div className="largeSection" id="visitSection">
         <Link to="/visit">Visit Us</Link>
       </div>
-      <div class="largeSection" id="contactSection">
+      <div className="largeSection" id="contactSection">
       <Link to="/contact">Contact Us</Link>
       </div>
     </div>
