@@ -1,14 +1,103 @@
 import styled from 'styled-components'
+import {
+  Link
+} from "react-router-dom";
 
+// General components
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
+
+export const Image = styled.img`
+  height: ${props => props.height || '200px'};
+  width: ${props => props.width || '200px'};
+  object-fit: cover;
+  object-position: 0 80%;
+  border-radius: 1rem;
+  border: 3px solid black;
+`
+
+export const PageWrapper = styled.div`
+  display: grid;
+`
+
+export const ContentWrapper = styled.div`
+  max-width: 1000px;
+  justify-self: center;
+`
+
+export const TextButton = styled.button`
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: 'Century Gothic', sans-serif;
+  font-size: 1rem;
+  text-decoration: underline;
+`
+
+export const Flex = styled.div`
+  display: flex;
+  align-items: ${props => props.align};
+  flex-direction: ${props => props.direction};
+
+  & :not(:first-child) {
+    padding: ${props => props.notFirstPadding};
+  }
+`
+
+export const BrownButton = styled.button`
+  background: #4D3E3E;
+  color: white;
+  padding: .5rem 2rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  border: none;
+  font-family: 'Century Gothic', sans-serif;
+  font-size: 1rem;
+`
+
+// Nav
 export const NavBar = styled.nav`
   display: grid;
   grid-template-columns: 4fr 1fr 1fr min-content;
   grid-gap: 1rem;
   padding: 1rem 4rem;
-  align-items: center;
+  align-items: end;
   align-self: center;
 `
 
+export const NavLink = styled.p`
+  color: black;
+  text-decoration: none;
+  font-family: 'Century Gothic', sans-serif;
+  ${props => props.active && `
+    color: black;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    text-decoration-color:#FF926B;
+    font-weight: bold;
+  `}
+`
+
+export const BagCount = styled.div`
+  position: relative;
+  left: 21px;
+  top: 19px;
+  width: fit-content;
+  background: #FFC38B;
+  padding: 1px 5px;
+  z-index: 1;
+  font-size: 12px;
+  border-radius: 40%;
+  color: black;
+  border: 1px solid black;
+`
+
+//Homepage
 export const HomeGrid = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -17,14 +106,6 @@ export const HomeGrid = styled.div`
   max-width: 1000px;
   align-self: center;
   margin: auto auto;
-`
-export const Image = styled.img`
-  height: ${props => props.height || '200px'};
-  width: ${props => props.width || '200px'};
-  object-fit: cover;
-  object-position: 0 80%;
-  border-radius: 1rem;
-  border: 3px solid black;
 `
 
 export const ArrowButton = styled.button`
@@ -37,15 +118,7 @@ export const ArrowButton = styled.button`
 
 `
 
-export const PageWrapper = styled.div`
-  padding: 2rem;
-`
-
-export const ContentWrapper = styled.div`
-  max-width: 1000px;
-  justify-self: center;
-`
-
+//My Bag
 export const BagItem = styled.div`
   display: grid;
   grid-template-columns: min-content auto max-content max-content;
@@ -63,31 +136,11 @@ export const ItemDetails = styled.div`
   }
 `
 
-export const TextButton = styled.button`
-  border: 0;
-  background: none;
-  cursor: pointer;
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 1rem;
-  text-decoration: underline;
-`
-
 export const ButtonWrapper = styled.div`
   display: grid;
   grid-template-columns: max-content max-content;
   grid-gap: 1rem;
   justify-content: end;
-`
-
-export const BrownButton = styled.button`
-  background: #4D3E3E;
-  color: white;
-  padding: .5rem 2rem;
-  border-radius: .5rem;
-  cursor: pointer;
-  border: none;
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 1rem;
 `
 
 export const WishlistWrapper = styled.div`
@@ -99,15 +152,5 @@ export const WishlistWrapper = styled.div`
 
   & img {
     cursor: pointer;
-  }
-`
-
-export const Flex = styled.div`
-  display: flex;
-  align-items: ${props => props.align};
-  flex-direction: ${props => props.direction};
-
-  & :not(:first-child) {
-    padding: ${props => props.notFirstPadding};
   }
 `
