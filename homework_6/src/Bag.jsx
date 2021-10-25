@@ -1,12 +1,17 @@
+import React, { useState } from "react";
 import {PageWrapper, ContentWrapper, BagItem, Image, ItemDetails, TextButton, ButtonWrapper, BrownButton, Flex, WishlistWrapper} from './Components'
 import './App.css'
 import {
   Link,
   useHistory
 } from "react-router-dom";
+import Modal from './Modal'
 
 const Bag = ({wishlistItems}) => {
   let history = useHistory()
+  const [showModal, setShowModal] = useState(false)
+  const toggleModal = () => setShowModal(!showModal)
+
   const getBunInfo = (id) => {
     const buns = [{"id": "original", "name": "Original", "image": "https://images.unsplash.com/photo-1577385384956-7e9fab6f7e84?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1587&q=80"},
     {"id": "blackberry", "name":"Blackberry", "image":"https://images.unsplash.com/photo-1630182266697-92508c01e2d1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1760&q=80"},
@@ -16,6 +21,7 @@ const Bag = ({wishlistItems}) => {
     {"id": "caramelpecan", "name":"Caramel Pecan", "image":"https://images.unsplash.com/photo-1618256747711-c4195a69ceff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1587&q=80"}]
     return buns.filter(item => item.id === id)[0]
   }
+  
   return (
     <PageWrapper>
       <ContentWrapper>
@@ -45,11 +51,15 @@ const Bag = ({wishlistItems}) => {
           {wishlistItems.length !== 0 && <p>Click on the image to add to cart</p>}
         </Flex>
         <WishlistWrapper>
-          {wishlistItems.map(item => <Image height='100px' width='100px' src={getBunInfo(item).image} />)}
-          {wishlistItems.length == 0 && <Link to="/products">Nothing here. :( Go to buns to add a bun to wishlist</Link>}
+          {wishlistItems.map(item => <Image height='100px' width='100px' src={getBunInfo(item).image} onClick={()=> toggleModal} />)}
+          {wishlistItems.length === 0 && <Link to="/products">Nothing here. :( Go to buns to add a bun to wishlist</Link>}
+          <button onClick={()=> setShowModal(true)}>Test</button>
         </WishlistWrapper>
       </ContentWrapper>
-
+      <Modal isOpen={showModal} toggleModal={()=> setShowModal(false)}>
+        <h3>Modal title</h3>
+        <p>Content</p>
+      </Modal>
   </PageWrapper>
   )
 }
