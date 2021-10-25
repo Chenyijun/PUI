@@ -2,7 +2,7 @@
   "name": "homework_6",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://chenyijun.github.io/PUI/homework_6/",
+  "homepage": "https://chenyijun.github.io/PUI/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -20,7 +20,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "deploySubtree": "git subtree push --prefix homework_6 origin gh-pages"
   },
   "eslintConfig": {
     "extends": [
