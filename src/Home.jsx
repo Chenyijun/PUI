@@ -45,7 +45,7 @@ const Home= () => {
         <Link to="/visit">Visit Us</Link>
       </div>
       <div class="largeSection" id="contactSection">
-        <a href="contact.html">Contact Us</a>
+      <Link to="/contact">Contact Us</Link>
       </div>
     </div>
   </div>
