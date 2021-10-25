@@ -2,7 +2,7 @@ import './App.css'
 
 const Visit = () => {
   return (
-    <div class="content" id="centerColumn">
+    <div className="content" id="centerColumn">
 		<h1>Visit</h1>
 		<div id="twoColGrid">
 			<div>

@@ -20,11 +20,11 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
   let [item, setItem] = useState({...bun, "glaze": glaze, "quantity": quantity})
   useEffect(() => { //change item whenever glaze or quantity is updated
     setItem({...item, "glaze": glaze, "quantity": quantity})
-  }, [glaze, quantity])
+  }, [glaze, quantity]) /* eslint react-hooks/exhaustive-deps: "off" */
   return (
-    <body>
-      <div class="content" id="bunDetails">
-        <div class="breadcrumbs"><Link to="/products">Buns</Link> &gt; {bun.name}</div>
+    <div>
+      <div className="content" id="bunDetails">
+        <div className="breadcrumbs"><Link to="/products">Buns</Link> &gt; {bun.name}</div>
         <h1 id="lessMarginBottom">{bun.name}</h1>
         <div id="detailedBunGrid">
           <Flex align='start' direction='column'>
@@ -42,12 +42,12 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
             </select>
             <p>Price</p>
             <p>$5</p>
-            <button class="brownButton" onClick={() => history.goBack()}>Back</button>
-            <button class="brownButton" onClick={() => setMyBagItems([...myBagItems, item])}>Add to Bag</button>
+            <button className="brownButton" onClick={() => history.goBack()}>Back</button>
+            <button className="brownButton" onClick={() => setMyBagItems([...myBagItems, item])}>Add to Bag</button>
           </div>
         </div>
       </div>
-    </body>
+    </div>
   )
 }
 export default Bun

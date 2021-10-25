@@ -2,7 +2,7 @@ import './App.css'
 
 const Contact = () => {
   return (
-    <div class="content" id="centerColumn">
+    <div className="content" id="centerColumn">
 		<h1>Contact</h1>
 		<div id="twoColGrid">
 			<p>Phone Number: (123) 123-1234 <br/><br/> Email: help@bunbunbakery.com</p>
