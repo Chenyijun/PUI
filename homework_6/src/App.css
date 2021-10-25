@@ -253,6 +253,7 @@ select {
 	max-width: 1000px;
 	justify-self: center;
 	min-width: 600px; 
+  padding: 0 4rem;
 	padding-bottom: 4rem;
 }
 

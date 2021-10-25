@@ -44,8 +44,12 @@ export const Flex = styled.div`
   align-items: ${props => props.align};
   flex-direction: ${props => props.direction};
 
-  & :not(:first-child) {
+  & :not(:first-child){
     padding: ${props => props.notFirstPadding};
+  }
+
+  & div :not(:first-child){
+    padding: ${props => props.listPadding};
   }
 `
 
@@ -155,6 +159,18 @@ export const WishlistWrapper = styled.div`
   }
 `
 
+export const TwoColGrid = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+`
+
+export const BagList = styled.div`
+  display: grid;
+  grid-gap: 1rem;
+`
+
+//Modal
 export const Background = styled.div`
   position: fixed;
   top: 0;
@@ -178,4 +194,16 @@ export const ModalContent = styled.div`
   border-radius: 10px;
   transform: translate(-50%, -50%);
   background: white;
+`
+//Footer
+export const Footer = styled.footer`
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  grid-gap: 2rem;
+  align-items: center;
+  background: #FFC38B;
+  padding: 0 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 `
