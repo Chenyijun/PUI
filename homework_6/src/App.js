@@ -12,6 +12,7 @@ import Visit from './Visit.jsx'
 import Bag from './Bag.jsx'
 import Contact from './Contact.jsx'
 import Footer from './Footer.jsx'
+import { AppWrapper } from './Components'
 
 function App() {
   let [myBagItems, setMyBagItems] = useState([])
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <Router>
-    <div>
+    <AppWrapper>
       <Nav bagCount={bagCount} wishlistItems={wishlistItems}/>
       <Switch>
         <Route path="/products">
@@ -44,7 +45,7 @@ function App() {
         </Route>
       </Switch>
       <Footer />
-    </div>
+    </AppWrapper>
   </Router>
   );
 }

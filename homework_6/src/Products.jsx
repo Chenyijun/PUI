@@ -1,4 +1,5 @@
 import React from "react";
+import { ContentWrapper } from "./Components";
 import './App.css'
 import {
   Switch,
@@ -16,7 +17,7 @@ const Products = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) 
           <Bun myBagItems={myBagItems} setMyBagItems={setMyBagItems} wishlistItems={wishlistItems} setWishlistItems={setWishlistItems} />
         </Route>
         <Route path={match.path}>
-        <div>
+        <ContentWrapper>
           <div id="bunGrid">
           <Link to="/products/original">
                 <div className="card">
@@ -55,7 +56,7 @@ const Products = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) 
                 </div>
               </Link>
             </div>
-          </div>
+          </ContentWrapper>
         </Route>
       </Switch>
   )

@@ -4,6 +4,15 @@ import {
 } from "react-router-dom";
 
 // General components
+export const AppWrapper = styled.div`
+  margin: 0;
+  font-family: 'Century Gothic', sans-serif;
+  background: #FFF3CD;
+  display: grid;
+  grid-template-rows: max-content auto min-content;
+  height: 100%;
+`
+
 export const StyledLink = styled(Link)`
     text-decoration: none;
 

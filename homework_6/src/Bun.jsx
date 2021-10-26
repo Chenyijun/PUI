@@ -1,5 +1,5 @@
 import React, { useEffect, useState }  from "react";
-import { Flex, TextButton } from './Components'
+import { ContentWrapper, Flex, TextButton } from './Components'
 import './App.css'
 import { getBunInfo } from './helperFunctions';
 
@@ -22,7 +22,7 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
     setItem({...item, "glaze": glaze, "quantity": quantity})
   }, [glaze, quantity]) /* eslint react-hooks/exhaustive-deps: "off" */
   return (
-    <div>
+    <ContentWrapper>
       <div className="content" id="bunDetails">
         <div className="breadcrumbs"><Link to="/products">Buns</Link> &gt; {bun.name}</div>
         <h1 id="lessMarginBottom">{bun.name}</h1>
@@ -47,7 +47,7 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
           </div>
         </div>
       </div>
-    </div>
+    </ContentWrapper>
   )
 }
 export default Bun
