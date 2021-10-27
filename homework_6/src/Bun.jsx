@@ -47,7 +47,7 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
             </select>
             <p>Quantity</p>
             <select name="quantity" id="quantitySelect" value={quantity} onChange={(e) => setQuantity(e.target.value)}>
-              {quantityOptions.map(glaze => <option key={quantity} value={quantity}>{quantity}</option>)}
+              {quantityOptions.map(quatityNum => <option key={quantityNum} value={quantityNum}>{quantityNum}</option>)}
             </select>
             <p>Price</p>
             <p>${5 * quantity}</p>
