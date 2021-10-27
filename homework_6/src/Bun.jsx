@@ -47,10 +47,10 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
             </select>
             <p>Quantity</p>
             <select name="quantity" id="quantitySelect" value={quantity} onChange={(e) => setQuantity(e.target.value)}>
-              {quantityOptions.map(glaze => <option key={glaze} value={glaze}>{glaze}</option>)}
+              {quantityOptions.map(glaze => <option key={quantity} value={quantity}>{quantity}</option>)}
             </select>
             <p>Price</p>
-            <p>$5</p>
+            <p>${5 * quantity}</p>
             <BrownButton onClick={() => history.goBack()}>Back</BrownButton>
             <BrownButton onClick={() => addToBag()}>Add to Bag</BrownButton>
           </div>
