@@ -37,6 +37,7 @@ export const PageWrapper = styled.div`
 export const ContentWrapper = styled.div`
   max-width: 1000px;
   justify-self: center;
+  height: 100vh;
 `
 
 export const TextButton = styled.button`
@@ -71,6 +72,18 @@ export const BrownButton = styled.button`
   border: none;
   font-family: 'Century Gothic', sans-serif;
   font-size: 1rem;
+
+  &:hover{
+    opacity: .8;
+  }
+
+  ${props => props.disabled && `
+    opacity: .5;
+    cursor: default;
+    &:hover{
+      opacity: .5;
+    }
+  `};
 `
 
 // Nav
@@ -134,7 +147,17 @@ export const ArrowButton = styled.button`
   height: 3rem;
   padding: .75rem;
   cursor: pointer;
+`
 
+//Bun
+export const Toast = styled.div`
+  display: ${props => !props.show && 'none'};
+  background: #FF926B;
+  position: absolute;
+  padding: 1rem;
+  border-radius: 8px;
+  right: 1rem;
+  box-shadow: 3px 4px 5px 0px #b5b5b5;
 `
 
 //My Bag

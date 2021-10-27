@@ -1,5 +1,5 @@
 import React, { useEffect, useState }  from "react";
-import { ContentWrapper, Flex, TextButton } from './Components'
+import { ContentWrapper, Flex, TextButton, Toast, BrownButton } from './Components'
 import './App.css'
 import { getBunInfo } from './helperFunctions';
 
@@ -18,9 +18,18 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
   let [glaze, setGlaze] = useState("None")
   let [quantity, setQuantity] = useState(1)
   let [item, setItem] = useState({...bun, "glaze": glaze, "quantity": quantity})
+  let [showToast, setShowToast] = useState(false)
+  
   useEffect(() => { //change item whenever glaze or quantity is updated
     setItem({...item, "glaze": glaze, "quantity": quantity})
   }, [glaze, quantity]) /* eslint react-hooks/exhaustive-deps: "off" */
+
+  const addToBag = () => {
+    setMyBagItems([...myBagItems, item])
+    setShowToast(true)
+    setTimeout(() => {setShowToast(false)}, 1000)
+  }
+
   return (
     <ContentWrapper>
       <div className="content" id="bunDetails">
@@ -42,10 +51,11 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
             </select>
             <p>Price</p>
             <p>$5</p>
-            <button className="brownButton" onClick={() => history.goBack()}>Back</button>
-            <button className="brownButton" onClick={() => setMyBagItems([...myBagItems, item])}>Add to Bag</button>
+            <BrownButton onClick={() => history.goBack()}>Back</BrownButton>
+            <BrownButton onClick={() => addToBag()}>Add to Bag</BrownButton>
           </div>
         </div>
+        <Toast show={showToast}>Item added to cart!</Toast>
       </div>
     </ContentWrapper>
   )

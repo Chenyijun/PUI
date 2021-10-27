@@ -40,7 +40,7 @@ const Bag = ({wishlistItems, myBagItems, setMyBagItems}) => {
         </BagList>}
         <ButtonWrapper>
           <BrownButton onClick={()=>history.goBack()}>Back</BrownButton>
-          <BrownButton disabled={myBagItems.count === 0}>Checkout</BrownButton>
+          <BrownButton disabled={myBagItems.length === 0}>Checkout</BrownButton>
         </ButtonWrapper>
         <br />
         <Flex notFirstPadding='0 0 0 1rem' align='baseline'>
