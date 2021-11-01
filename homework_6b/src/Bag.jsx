@@ -12,9 +12,17 @@ const Bag = ({wishlistItems, myBagItems, setMyBagItems}) => {
   let history = useHistory()
   const [showModal, setShowModal] = useState(false)
   const [showNoItem, setShowNoItem] = useState(true)
+  const [totalPrice, setTotalPrice] = useState(5)
   useEffect(() => { //change item whenever glaze or quantity is updated
     setShowNoItem(myBagItems.length < 1)
+    updateTotalPrice()
   }, [myBagItems]) /* eslint react-hooks/exhaustive-deps: "off" */
+
+  const updateTotalPrice = () => {
+    let price = 0
+    myBagItems.map(item => price = price + (item.quantity * 5))
+    setTotalPrice(price)
+  }
 
   return (
     <PageWrapper>
@@ -22,21 +30,9 @@ const Bag = ({wishlistItems, myBagItems, setMyBagItems}) => {
         <h1>My Bag</h1>
         {showNoItem ? <p>No item in bag</p>: 
         <BagList>
-          {myBagItems.map(item => <BagItem>
-          <Image height='100px' width='100px' src={item.image} />
-          <ItemDetails>
-            <p><b>{item.name}</b></p>
-            <p><b>Quantity</b></p>
-            <p><b>Price</b></p>
-            <p>{item.glaze}</p>
-            <p>{item.quantity}</p>
-            <p>${item.quantity * 5}</p>
-          </ItemDetails>
-          <TextButton>Edit</TextButton>
-          <TextButton>Remove</TextButton>
-        </BagItem>)}
+          {myBagItems.map((item, i) => <BunItem key={`${item.name}-${i}`} item={item} index={i} myBagItems={myBagItems} setMyBagItems={setMyBagItems}/>)}
         <br />
-        <p>Total Price $5</p>
+        <p><b>Total Price</b> ${totalPrice}</p>
         </BagList>}
         <ButtonWrapper>
           <BrownButton onClick={()=>history.goBack()}>Back</BrownButton>
@@ -56,6 +52,56 @@ const Bag = ({wishlistItems, myBagItems, setMyBagItems}) => {
         </WishlistWrapper>
       </ContentWrapper>
   </PageWrapper>
+  )
+}
+
+const BunItem = ({item, index, myBagItems, setMyBagItems}) => {
+  const glazeOptions = getGlazes()
+  const quantityOptions = getQuantities()
+  let [bun, setBun] = useState(item)
+  let [glaze, setGlaze] = useState(item.glaze)
+  let [quantity, setQuantity] = useState(item.quantity)
+  let [editMode, setEditMode] = useState(false)
+  let newMyBagItems = [...myBagItems]
+
+  useEffect(() => { //change item whenever glaze or quantity is updated
+    setBun({...bun, "glaze": glaze, "quantity": quantity})
+  }, [glaze, quantity])
+
+  const saveBun = () => {
+    newMyBagItems[index] = bun
+    setMyBagItems(newMyBagItems)
+    setEditMode(false)
+  }
+
+  const removeBun = () => {
+    newMyBagItems.splice(index, 1)
+    setMyBagItems(newMyBagItems)
+  }
+
+  return (
+    <BagItem>
+      <Image height='100px' width='100px' src={item.image} />
+      <ItemDetails>
+        <p><b>{item.name}</b></p>
+        <p><b>Quantity</b></p>
+        <p><b>Price</b></p>
+        {editMode ?
+          <select name="glaze" id="glazeSelect" value={glaze} onChange={(e) => setGlaze(e.target.value)}>
+            {glazeOptions.map(glaze => <option key={glaze} value={glaze}>{glaze}</option>)}
+          </select>
+          : <p>{bun.glaze}</p>}
+        {editMode ?
+          <select name="quantity" id="quantitySelect" value={quantity} onChange={(e) => setQuantity(e.target.value)}>
+            {quantityOptions.map(quantity => <option key={quantity} value={quantity}>{quantity}</option>)}
+          </select>
+          : <p>{bun.quantity}</p>
+        }
+        <p>${bun.quantity * 5}</p>
+      </ItemDetails>
+      <TextButton onClick={() => editMode ? saveBun() : setEditMode(true)}>{editMode ? "Done" : "Edit"}</TextButton>
+      <TextButton onClick={() => editMode ? setEditMode(false) : removeBun()}>{editMode ? "Cancel" : "Remove"}</TextButton>
+  </BagItem>
   )
 }
 
@@ -84,7 +130,7 @@ const ModalContent = ({bun, myBagItems, setMyBagItems, setShowModal}) => {
         </select>
         <p>Quantity</p>
         <select name="quantity" id="quantitySelect" value={quantity} onChange={(e) => setQuantity(e.target.value)}>
-          {quantityOptions.map(glaze => <option key={glaze} value={glaze}>{glaze}</option>)}
+          {quantityOptions.map(quantity => <option key={quantity} value={quantity}>{quantity}</option>)}
         </select>
         <p>Price</p>
         <p>$5</p>

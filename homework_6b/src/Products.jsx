@@ -37,7 +37,7 @@ const Products = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) 
                   <p className="cardText">Walnut</p>
                 </div>
               </Link>
-              <Link to="/products/originalgf">
+              <Link to="/products/original-gf">
                 <div className="card">
                   <img className="cardImage" src="https://images.unsplash.com/photo-1603459872271-410a6697abcd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1586&q=80" alt="Original Bun (Gluten Free)"/>
                   <p className="cardText">Original (GF)</p>

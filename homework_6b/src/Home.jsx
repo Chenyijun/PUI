@@ -18,7 +18,7 @@ const Home= () => {
       <div className="content">
         <HomeGrid>
           <div id="homeContent">
-            <h1>Bun Bun Bake Shop V2</h1>
+            <h1>Bun Bun Bake Shop</h1>
             <p>We are a small bakery that specializes in cinnamon rolls, from our famous original cinnamon rolls to a variety of artisan flavors. Our shop is located in Pittsburgh, PA and we ship fresh rolls anywhere in the Pittsburgh area. Visitors to our site should be able to buy cinnamon rolls by different flavors. </p>
           </div>
           <div id="promo">
