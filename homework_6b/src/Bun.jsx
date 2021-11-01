@@ -19,6 +19,7 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
   let [quantity, setQuantity] = useState(1)
   let [item, setItem] = useState({...bun, "glaze": glaze, "quantity": quantity})
   let [showToast, setShowToast] = useState(false)
+  let [toastText, setToastText] = useState('Item added to cart!')
   
   useEffect(() => { //change item whenever glaze or quantity is updated
     setItem({...item, "glaze": glaze, "quantity": quantity})
@@ -26,6 +27,16 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
 
   const addToBag = () => {
     setMyBagItems([...myBagItems, item])
+    setToastText('Item added to cart!')
+    setShowToast(true)
+    setTimeout(() => {setShowToast(false)}, 1000)
+  }
+
+  const updateWishlist = () => {
+    wishlistItems.includes(bun.id)
+    ? setWishlistItems(wishlistItems.filter(item => item !== bun.id))
+    : setWishlistItems([...wishlistItems, bun.id])
+    setToastText(`Item ${wishlistItems.includes(bun.id) ? 'removed from' : 'added to'} wishlist!`)
     setShowToast(true)
     setTimeout(() => {setShowToast(false)}, 1000)
   }
@@ -38,7 +49,7 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
         <div id="detailedBunGrid">
           <Flex align='start' direction='column'>
             <img id="detailedImage" src={bun.image} alt={bun.name}/>
-            <TextButton onClick={()=> wishlistItems.includes(bun.id) ? setWishlistItems(wishlistItems.filter(item => item !== bun.id)) : setWishlistItems([...wishlistItems, bun.id])}>{wishlistItems.includes(bun.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}</TextButton>
+            <TextButton onClick={()=> updateWishlist()}>{wishlistItems.includes(bun.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}</TextButton>
           </Flex>
           <div id="rightColumn">
             <p>Glaze</p>
@@ -55,7 +66,7 @@ const Bun = ({wishlistItems, setWishlistItems, myBagItems, setMyBagItems}) => {
             <BrownButton onClick={() => addToBag()}>Add to Bag</BrownButton>
           </div>
         </div>
-        <Toast show={showToast}>Item added to cart!</Toast>
+        <Toast show={showToast}>{toastText}</Toast>
       </div>
     </ContentWrapper>
   )

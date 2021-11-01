@@ -156,7 +156,8 @@ export const Toast = styled.div`
   position: absolute;
   padding: 1rem;
   border-radius: 8px;
-  right: 1rem;
+  right: 10%;
+  bottom: 10%;
   box-shadow: 3px 4px 5px 0px #b5b5b5;
 `
 
