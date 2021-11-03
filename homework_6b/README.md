@@ -1,3 +1,12 @@
+# Functionalities
+- Pages for homepage, all products page, all individual product pages, bag, visit, and contact
+- Can add product to cart (with toast popup)
+- Can add/remove product to/from wishlist (with toast popup)
+- Carousel on homepage 
+- Can edit/remove product on bag page
+- In wishlist on bag page, you can open a modal to add wishlist item to bag
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
