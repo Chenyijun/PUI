@@ -187,6 +187,7 @@ export const ButtonWrapper = styled.div`
 
 export const WishlistWrapper = styled.div`
   display: flex;
+  margin-bottom: 4rem;
 
   & :not(:first-child) {
     padding-left: 1rem
