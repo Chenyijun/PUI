@@ -37,7 +37,6 @@ export const PageWrapper = styled.div`
 export const ContentWrapper = styled.div`
   max-width: 1000px;
   justify-self: center;
-  height: 100vh;
 `
 
 export const TextButton = styled.button`
