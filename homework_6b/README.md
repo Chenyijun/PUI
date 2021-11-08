@@ -6,6 +6,9 @@
 - Can edit/remove product on bag page
 - In wishlist on bag page, you can open a modal to add wishlist item to bag
 
+# Link to site
+https://bunbunbakery.netlify.app
+
 
 # Getting Started with Create React App
 
