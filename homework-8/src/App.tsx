@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState }  from "react";
+import { FC, useState }  from "react";
 import { AppWrapper, Header, Instructions, LeftWrapper, RightWrapper, CharacterChat, CharacterImage, Text, Footer } from "./components/appComponents";
 import Editor from './Editor'
 import Map from './Map'
@@ -15,9 +15,9 @@ const App:FC = () => {
       <LeftWrapper>
         <Header>
           <h1>CSS Adventure</h1>
-          <button disabled={level==0} onClick={()=>setLevel(level-1)}>PREVIOUS</button>
+          <button disabled={level===0} onClick={()=>setLevel(level-1)}>PREVIOUS</button>
           <p>{level}</p>
-          <button disabled={level==1} onClick={()=>setLevel(level+1)}>NEXT</button>
+          <button disabled={level===1} onClick={()=>setLevel(level+1)}>NEXT</button>
         </Header>
         <Instructions>{levelInfo.instructions}</Instructions>
         <Editor editor={levelInfo.editor} justify={justify} setJustify={setJustify} />

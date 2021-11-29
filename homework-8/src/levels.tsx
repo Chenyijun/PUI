@@ -1,5 +1,3 @@
-import React from "react";
-
 interface editorProps {
   type: string,
   content: string
