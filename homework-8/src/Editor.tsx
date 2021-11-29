@@ -4,12 +4,28 @@ import {EditorWrapper, EditorLine, LineNum, EditorText} from './components/edito
 type Props = {
   justify: string;
   setJustify: (val: string) => void;
+  editor: Array<EditorProps>;
 }
+
+type EditorProps = {
+  type: string,
+  content: string
+}
+
 type InputEvent = ChangeEvent<HTMLInputElement>;
 
-const Editor:FC<Props> = ({justify, setJustify}) => {
+const Editor:FC<Props> = ({editor, justify, setJustify}) => {
+  console.log(editor)
   return (
     <EditorWrapper>
+      {editor.map((line, i) => {
+        return(
+        <EditorLine>
+          <LineNum>{i}</LineNum>
+          <EditorText>{line.content}</EditorText>
+        </EditorLine>
+        )
+      })}
       <EditorLine>
         <LineNum>1</LineNum>
         <EditorText>This is the editor {justify}</EditorText>

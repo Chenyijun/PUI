@@ -3,25 +3,30 @@ import { AppWrapper, Header, Instructions, LeftWrapper, RightWrapper, CharacterC
 import Editor from './Editor'
 import Map from './Map'
 import './App.css'
+import { getLevelInfo } from "./levels";
 
 const App:FC = () => {
+  let [level, setLevel] = useState<number>(0)
   let [justify, setJustify] = useState<string>('')
+  const levelInfo = getLevelInfo(level)
+  console.log(levelInfo)
   return (
     <AppWrapper>
       <LeftWrapper>
-        <Header><h1>CSS Adventure</h1></Header>
-        <Instructions>Using a combination of justify-content and align-items to allow each member of the party to reach their destination.</Instructions>
-        <Editor justify={justify} setJustify={setJustify} />
+        <Header>
+          <h1>CSS Adventure</h1>
+          <button disabled={level==0} onClick={()=>setLevel(level-1)}>PREVIOUS</button>
+          <p>{level}</p>
+          <button disabled={level==1} onClick={()=>setLevel(level+1)}>NEXT</button>
+        </Header>
+        <Instructions>{levelInfo.instructions}</Instructions>
+        <Editor editor={levelInfo.editor} justify={justify} setJustify={setJustify} />
         <Footer>This is the footer</Footer>
       </LeftWrapper>
       <RightWrapper>
         <CharacterChat>
           <CharacterImage>Pic</CharacterImage>
-          <Text>Let’s prepare for our first adventure! First we need to collect some supplies!
-            I can stop by the guild to gather more information.
-            The Cleric can go stock up on potions.
-            The Mage can stop by the blacksmith to upgrade our weapons. 
-          </Text>
+          <Text>{levelInfo.characterText}</Text>
         </CharacterChat>
         <Map justify={justify}/>
       </RightWrapper>
