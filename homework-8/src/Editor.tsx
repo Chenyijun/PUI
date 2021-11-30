@@ -2,8 +2,8 @@ import React, {FC, ChangeEvent} from "react";
 import {EditorWrapper, EditorLine, LineNum, EditorText} from './components/editorComponents'
 
 type Props = {
-  justify: string;
-  setJustify: (val: string) => void;
+  setCssInput: (val: string) => void;
+  setCssInput2?: (val: string) => void;
   editor: Array<EditorProps>;
 }
 
@@ -14,26 +14,20 @@ type EditorProps = {
 
 type InputEvent = ChangeEvent<HTMLInputElement>;
 
-const Editor:FC<Props> = ({editor, justify, setJustify}) => {
+const Editor:FC<Props> = ({editor, setCssInput, setCssInput2}) => {
   console.log(editor)
   return (
     <EditorWrapper>
       {editor.map((line, i) => {
         return(
-        <EditorLine>
+        <EditorLine key={i}>
           <LineNum>{i}</LineNum>
           <EditorText>{line.content}</EditorText>
+          {line.type === 'input' && <input onChange={(e:InputEvent) => setCssInput(e.target.value)}/>}
+          {line.type === 'input2' && <input onChange={(e:InputEvent) => setCssInput2 && setCssInput2(e.target.value)}/>}
         </EditorLine>
         )
       })}
-      <EditorLine>
-        <LineNum>1</LineNum>
-        <EditorText>This is the editor {justify}</EditorText>
-      </EditorLine>
-      <EditorLine>
-        <LineNum>2</LineNum>
-        <EditorText><input onChange={(e:InputEvent) => setJustify(e.target.value)}/></EditorText>
-      </EditorLine>
     </EditorWrapper>
   )
 }

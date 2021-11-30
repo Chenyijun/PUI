@@ -23,7 +23,7 @@ export const getLevelInfo = (level:number):Props => {
         content: "this is editor"},
         {type: 'input',
         content: 'justify-content:'},
-        {type: 'input',
+        {type: 'input2',
         content: 'align-items:'}
       ],
       answer: ["start", "end"]

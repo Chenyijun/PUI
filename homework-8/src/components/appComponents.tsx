@@ -53,3 +53,8 @@ export const CharacterImage = styled.div`
   width: 150px;
   background: white;
 `
+
+export const LevelWrapper = styled.div`
+  display: grid;
+  grid-template-columns: min-content min-content min-content;
+`

@@ -8,9 +8,14 @@ export const EditorWrapper = styled.div`
 
 export const EditorLine = styled.div`
   display: grid;
-  grid-template-columns: min-content auto;
+  grid-template-columns: min-content max-content auto;
   align-items: center;
   grid-gap: 1rem;
+
+  p {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+  }
 `
 
 export const LineNum = styled.p`
