@@ -20,7 +20,7 @@ const App:FC = () => {
           <h1>CSS Adventure</h1>
           <LevelWrapper>
             <button disabled={level===0} onClick={()=>setLevel(level-1)}>PREVIOUS</button>
-            <p>{level}</p>
+            <p>{levelInfo.level}</p>
             <button disabled={level===1} onClick={()=>setLevel(level+1)}>NEXT</button>
           </LevelWrapper>
         </Header>
@@ -30,7 +30,7 @@ const App:FC = () => {
       </LeftWrapper>
       <RightWrapper>
         <CharacterChat>
-          <CharacterImage>Pic</CharacterImage>
+          <CharacterImage src="characterIcon.png" alt='Warrior'></CharacterImage>
           <Text>{levelInfo.characterText}</Text>
         </CharacterChat>
         <WorldMap level={levelInfo.level} cssInput={cssInput} cssInput2={cssInput2}/>

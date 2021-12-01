@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1088px" height="1088px" viewBox="0 0 1088 1088" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Slime</title>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <ellipse id="Oval" fill="#3EC228" cx="808.5" cy="357.5" rx="101.5" ry="100.5"></ellipse>
+        <path d="M522.684141,827.656796 C767.89857,827.656796 965,809.449927 965,604 C965,398.550073 766.214429,232 521,232 C275.785571,232 77,398.550073 77,604 C77,809.449927 277.469712,827.656796 522.684141,827.656796 Z" id="Oval" fill="#51D13B"></path>
+        <ellipse id="Oval" fill="#51D13B" cx="933.577114" cy="218" rx="58.5771144" ry="58"></ellipse>
+        <circle id="Oval" stroke="#6F6F6F" stroke-width="20" fill="#FFF165" cx="351.5" cy="536.5" r="68.5"></circle>
+        <circle id="Oval" stroke="#6F6F6F" stroke-width="20" fill="#FFF165" cx="692.5" cy="536.5" r="68.5"></circle>
+        <path d="M474.684141,625.235843 C493.326016,624.210828 508.659349,617.515533 520.684141,605.149958 C535.983923,617.515533 551.525313,624.210828 567.308311,625.235843" id="Path-5" stroke="#6F6F6F" stroke-width="20" stroke-linecap="round"></path>
+        <circle id="Oval" fill="#6F6F6F" cx="351.5" cy="536.5" r="30.5"></circle>
+        <circle id="Oval" fill="#6F6F6F" cx="692.5" cy="536.5" r="30.5"></circle>
+    </g>
+</svg>

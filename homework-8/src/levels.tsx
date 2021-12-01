@@ -20,11 +20,15 @@ export const getLevelInfo = (level:number):Props => {
       characterText: "Let’s prepare for our first adventure! First we need to collect some supplies! I can stop by the guild to gather more information. The Cleric can go stock up on potions. The Mage can stop by the blacksmith to upgrade our weapons.",
       editor: [
         {type: 'text',
-        content: "this is editor"},
+        content: ".party {"},
+        {type: 'text',
+        content: "display: flex;"},
         {type: 'input',
         content: 'justify-content:'},
         {type: 'input2',
-        content: 'align-items:'}
+        content: 'align-items:'},
+        {type: 'text',
+        content: "}"},
       ],
       answer: ["start", "end"]
     },
@@ -34,9 +38,23 @@ export const getLevelInfo = (level:number):Props => {
       characterText: "Oh no it's a monster! Let's have the Mage send a fireball to defeat the monster!",
       editor: [
         {type: 'text',
-        content: "this is editor"},
+        content: ".fields {"},
+        {type: 'text',
+        content: 'display: grid;'},
+        {type: 'text',
+        content: 'grid-template-columns: 1fr 1fr 1fr;'},
+        {type: 'text',
+        content: 'grid-template-rows: 1fr 1fr 1fr;'},
+        {type: 'text',
+        content: '}'},
+        {type: 'text',
+        content: ''},
+        {type: 'text',
+        content: "#fireball {"},
         {type: 'input',
-        content: 'grid-column-start:'}
+        content: 'grid-column-start:'},
+        {type: 'text',
+        content: '}'}
       ],
       answer: ["3"]
     }

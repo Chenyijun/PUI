@@ -27,7 +27,7 @@ export const MapFlexOverlay = styled.div<flexProps>`
 `
 
 export const MapFlexWrapper = styled(MapFlexOverlay)`
-  background: #FFE5CD;
+  background: #bb9e78;
   justify-content: space-around;
   align-items: end;
 `
@@ -38,9 +38,19 @@ interface mapSquare {
   attack?:boolean,
 }
 export const Square = styled.div<mapSquare>`
-  background: ${(props) => props.player ? 'blue' : props.monster ? 'red' : '#FFE5CD'};
+  background: #bb9e78;
   height: 100%;
   width: 100%;
+  ${(props) => (props.player || props.monster) && 
+    `background-image: ${props.player ? 'url(/mage.svg)' : 'url(/slime.svg)'};
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;`
+  }
+
+  img{
+    height: 100%;
+  }
 `
 
 interface attackProps {
@@ -48,7 +58,10 @@ interface attackProps {
 }
 
 export const Attack = styled.div<attackProps>`
-  background: yellow;
+  background-image: url(/fireball.svg);
+  background-size: 75px;
+  background-repeat: no-repeat;
+  background-position: center;
   grid-column-start: ${props => props.cssInput};
   z-index: 2;
 `
@@ -64,6 +77,8 @@ export const Character = styled.div`
   height: 100px;
   width: 100px;
   color: white;
-  background: blue;
   z-index: 2;
+  img {
+    height: 100%;
+  }
 `

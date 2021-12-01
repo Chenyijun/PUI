@@ -16,6 +16,10 @@ export const LeftWrapper = styled.div`
 export const Header = styled.div`
   background: #BFE3DB;
   padding: 1rem 2rem 0 2rem;
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-gap: 1rem;
+  align-items: center;
 
   h1 {
     font-size: 1.5rem;
@@ -48,13 +52,21 @@ export const CharacterChat = styled.div`
 export const Text = styled.p`
 `
 
-export const CharacterImage = styled.div`
+export const CharacterImage = styled.img`
   height: 150px;
   width: 150px;
-  background: white;
 `
 
 export const LevelWrapper = styled.div`
   display: grid;
   grid-template-columns: min-content min-content min-content;
+  height: fit-content;
+  align-items: center;
+  grid-gap: .25rem;
+
+  button{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+  }
 `
