@@ -1,5 +1,5 @@
-import { FC, useState }  from "react";
-import { AppWrapper, Header, Instructions, LeftWrapper, RightWrapper, CharacterChat, CharacterImage, Text, Footer, LevelWrapper } from "./components/appComponents";
+import { FC, useState, useEffect }  from "react";
+import { AppWrapper, Header, Instructions, LeftWrapper, RightWrapper, CharacterChat, CharacterImage, Text, Footer, LevelWrapper, StyledButton } from "./components/appComponents";
 import Editor from './Editor'
 import WorldMap from './WorldMap'
 import './App.css'
@@ -9,24 +9,36 @@ const App:FC = () => {
   let [level, setLevel] = useState<number>(0)
   let [cssInput, setCssInput] = useState<string>('')
   let [cssInput2, setCssInput2] = useState<string>('')
+  let [correctAnswer, setCorrectAnswer] = useState<boolean>(false)
   const levelInfo = getLevelInfo(level)
 
-  console.log(levelInfo)
-  console.log(cssInput)
+
+  useEffect(() => {
+    if(levelInfo.answer[0] === cssInput){
+      console.log('first correct')
+      if (levelInfo.answer[1] && levelInfo.answer[1] === cssInput2){
+        setCorrectAnswer(true)
+      }
+    }
+  }, [cssInput, cssInput2]) /* eslint react-hooks/exhaustive-deps: "off" */
+
   return (
     <AppWrapper>
       <LeftWrapper>
         <Header>
           <h1>CSS Adventure</h1>
           <LevelWrapper>
-            <button disabled={level===0} onClick={()=>setLevel(level-1)}>PREVIOUS</button>
+            <StyledButton disabled={level===0} onClick={()=>setLevel(level-1)}>◄</StyledButton>
             <p>{levelInfo.level}</p>
-            <button disabled={level===1} onClick={()=>setLevel(level+1)}>NEXT</button>
+            <StyledButton disabled={level===1} onClick={()=>setLevel(level+1)}>►</StyledButton>
           </LevelWrapper>
         </Header>
         <Instructions>{levelInfo.instructions}</Instructions>
         <Editor editor={levelInfo.editor} setCssInput={setCssInput} setCssInput2={setCssInput2} />
-        <Footer>This is the footer</Footer>
+        <Footer>
+          <StyledButton>Help</StyledButton>
+          <StyledButton disabled={!correctAnswer} onClick={()=>setLevel(level+1)}>Next</StyledButton>
+        </Footer>
       </LeftWrapper>
       <RightWrapper>
         <CharacterChat>

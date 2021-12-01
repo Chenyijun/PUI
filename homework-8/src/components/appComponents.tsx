@@ -33,8 +33,10 @@ export const Instructions = styled.div`
 `
 
 export const Footer = styled.div`
-  padding: 2rem;
+  padding: 1rem 2rem;
   background: #BFE3DB;
+  display: flex;
+  justify-content: space-between;
 `
 
 export const RightWrapper = styled.div`
@@ -63,10 +65,21 @@ export const LevelWrapper = styled.div`
   height: fit-content;
   align-items: center;
   grid-gap: .25rem;
+`
 
-  button{
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #aaa;
+interface buttonProps {
+  disabled?: boolean
+}
+
+export const StyledButton = styled.button<buttonProps>`
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background: ${props => props.disabled ? '#aaa' : '#555C6E'};
+  color: white;
+  cursor: ${props => !props.disabled && 'pointer'};
+
+  &:hover{
+    background: ${props => props.disabled ? '#aaa' : '#89B0AE'};
   }
 `

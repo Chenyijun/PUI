@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC} from "react";
 import {MapFlexOverlay, MapFlexWrapper, Character, MapWrapper, Square, Attack, Shop} from './components/mapComponents'
 
 type Props = {

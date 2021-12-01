@@ -30,7 +30,7 @@ export const getLevelInfo = (level:number):Props => {
         {type: 'text',
         content: "}"},
       ],
-      answer: ["start", "end"]
+      answer: ['space-around', 'end']
     },
     {
       level: 2,
@@ -56,7 +56,7 @@ export const getLevelInfo = (level:number):Props => {
         {type: 'text',
         content: '}'}
       ],
-      answer: ["3"]
+      answer: ['3']
     }
   ]
   const chosenLevel:Props = levels[level]
