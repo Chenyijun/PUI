@@ -1,4 +1,5 @@
-import { FC, useState, useEffect }  from "react";
+import React, { FC, useState, useEffect }  from "react";
+import ReactTooltip from 'react-tooltip';
 import { AppWrapper, Header, Instructions, LeftWrapper, RightWrapper, CharacterChat, CharacterImage, Text, Footer, LevelWrapper, StyledButton } from "./components/appComponents";
 import Editor from './Editor'
 import WorldMap from './WorldMap'
@@ -15,7 +16,6 @@ const App:FC = () => {
 
   useEffect(() => {
     if(levelInfo.answer[0] === cssInput){
-      console.log('first correct')
       if (levelInfo.answer[1] && levelInfo.answer[1] === cssInput2){
         setCorrectAnswer(true)
       }
@@ -26,7 +26,8 @@ const App:FC = () => {
     <AppWrapper>
       <LeftWrapper>
         <Header>
-          <h1>CSS Adventure</h1>
+          <h1 data-tip='Welcome!'>CSS Adventure</h1>
+          <ReactTooltip />
           <LevelWrapper>
             <StyledButton disabled={level===0} onClick={()=>setLevel(level-1)}>◄</StyledButton>
             <p>{levelInfo.level}</p>
