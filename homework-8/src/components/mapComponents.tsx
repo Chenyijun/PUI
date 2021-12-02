@@ -24,6 +24,8 @@ export const MapFlexOverlay = styled.div<flexProps>`
   height: 70%;
   justify-content: ${props => props.cssInput};
   align-items: ${props => props.cssInput2};
+  padding: 1rem;
+  box-sizing: border-box;
 `
 
 export const MapFlexWrapper = styled(MapFlexOverlay)`
@@ -81,4 +83,13 @@ export const Character = styled.div`
   img {
     height: 100%;
   }
+`
+
+export const Sparkles = styled.img`
+  display: flex;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 50%;
+  z-index: 3;
 `

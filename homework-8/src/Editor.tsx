@@ -9,7 +9,8 @@ type Props = {
 
 type EditorProps = {
   type: string,
-  content: string
+  content: string,
+  indent?: boolean
 }
 
 type InputEvent = ChangeEvent<HTMLInputElement>;
@@ -22,7 +23,7 @@ const Editor:FC<Props> = ({editor, setCssInput, setCssInput2}) => {
         return(
         <EditorLine key={i}>
           <LineNum>{i}</LineNum>
-          <EditorText>{line.content}</EditorText>
+          <EditorText indent={line.indent}>{line.content}</EditorText>
           {line.type === 'input' && <input onChange={(e:InputEvent) => setCssInput(e.target.value)}/>}
           {line.type === 'input2' && <input onChange={(e:InputEvent) => setCssInput2 && setCssInput2(e.target.value)}/>}
         </EditorLine>

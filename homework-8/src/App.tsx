@@ -12,15 +12,32 @@ const App:FC = () => {
   let [cssInput2, setCssInput2] = useState<string>('')
   let [correctAnswer, setCorrectAnswer] = useState<boolean>(false)
   const levelInfo = getLevelInfo(level)
+  let completedLevels:Array<number> = JSON.parse(localStorage.getItem('levels') || "[]")
 
+  const setComplete = () => {
+    setCorrectAnswer(true)
+    completedLevels.push(level)
+    localStorage.setItem('levels', JSON.stringify(completedLevels))
+  }
 
   useEffect(() => {
-    if(levelInfo.answer[0] === cssInput){
-      if (levelInfo.answer[1] && levelInfo.answer[1] === cssInput2){
-        setCorrectAnswer(true)
+    if(levelInfo.answer[0] === cssInput.toString()){
+      if (levelInfo.answer[1] && levelInfo.answer[1] === cssInput2.toString()){
+        setComplete()
+      }
+      if (levelInfo.answer.length === 1) {
+        setComplete()
       }
     }
   }, [cssInput, cssInput2]) /* eslint react-hooks/exhaustive-deps: "off" */
+
+  useEffect(() => {
+    setCssInput('')
+    setCssInput2('')
+    setCorrectAnswer(false)
+  }, [level]) /* eslint react-hooks/exhaustive-deps: "off" */
+
+  console.log('HI completedlevel', completedLevels)
 
   return (
     <AppWrapper>
@@ -38,7 +55,7 @@ const App:FC = () => {
         <Editor editor={levelInfo.editor} setCssInput={setCssInput} setCssInput2={setCssInput2} />
         <Footer>
           <StyledButton>Help</StyledButton>
-          <StyledButton disabled={!correctAnswer} onClick={()=>setLevel(level+1)}>Next</StyledButton>
+          <StyledButton disabled={!correctAnswer || level===1} onClick={()=>setLevel(level+1)}>Next</StyledButton>
         </Footer>
       </LeftWrapper>
       <RightWrapper>
@@ -46,7 +63,7 @@ const App:FC = () => {
           <CharacterImage src="characterIcon.png" alt='Warrior'></CharacterImage>
           <Text>{levelInfo.characterText}</Text>
         </CharacterChat>
-        <WorldMap level={levelInfo.level} cssInput={cssInput} cssInput2={cssInput2}/>
+        <WorldMap level={levelInfo.level} cssInput={cssInput} cssInput2={cssInput2} correct={correctAnswer}/>
       </RightWrapper>
     </AppWrapper>
   );
