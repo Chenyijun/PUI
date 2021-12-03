@@ -67,12 +67,19 @@ export const Attack = styled.div<attackProps>`
   grid-column-start: ${props => props.cssInput};
   z-index: 2;
 `
-
-export const Shop = styled.div`
+interface shopProps {
+  potion?: boolean
+  guild?: boolean
+  blacksmith?: boolean
+}
+export const Shop = styled.div<shopProps>`
   height: 100px;
   width: 100px;
   color: white;
-  background: black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: ${props => props.potion ? 'url(/potionShop.svg)' : props.guild ? 'url(/guild.svg)' : 'url(/blacksmith.svg)'}
 `
 
 export const Character = styled.div`

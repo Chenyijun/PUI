@@ -18,9 +18,9 @@ const WorldMap:FC<Props> = ({level, cssInput, cssInput2, correct}) => {
           <Character><img src="mage.svg" alt='mage'/></Character>
       </FlexCharacters>
       <FlexMap>
-        <Shop>Guild</Shop>
-        <Shop>Potion Shop</Shop>
-        <Shop>Blacksmith</Shop>
+        <Shop guild></Shop>
+        <Shop potion></Shop>
+        <Shop blacksmith></Shop>
       </FlexMap>
       </ResponsiveMap>
     )
@@ -28,6 +28,7 @@ const WorldMap:FC<Props> = ({level, cssInput, cssInput2, correct}) => {
   if (level === 2){
     return (
       <ResponsiveMap>
+        {correct && <Sparkles src="https://c.tenor.com/ZoZqWaSnN5UAAAAi/diwali-sparkles-stars.gif"></Sparkles>}
         <Ground>
           <Attack cssInput={cssInput}></Attack>
         </Ground>

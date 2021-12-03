@@ -97,3 +97,29 @@ export const StyledButton = styled.button<buttonProps>`
     background: ${props => props.disabled ? '#aaa' : '#89B0AE'};
   }
 `
+interface levelButtonProps {
+  key: number
+  completed: boolean
+}
+export const LevelButton = styled.button<levelButtonProps>`
+  border: 3px solid #BFE3DB;
+  background: ${props => props.completed ? '#BFE3DB' : 'none'};
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+`
+
+export const ButtonGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  margin: 1rem;
+  grid-gap: .5rem;
+`
+
+export const LevelModal = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+`
