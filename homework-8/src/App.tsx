@@ -83,7 +83,7 @@ const App:FC = () => {
           <p>Levels</p>
           <ButtonGrid>
             {gameLevels.map(level => 
-            <LevelButton key={level.level} completed={level.level in completedLevels}>{level.level}</LevelButton>)}
+            <LevelButton key={level.level} completed={level.level in completedLevels} onClick={()=>{setLevel(level.level);setShowLevels(false)}}>{level.level}</LevelButton>)}
           </ButtonGrid>
           <StyledButton onClick={()=>resetAdventure()}>Reset</StyledButton>
         </LevelModal>
