@@ -70,7 +70,7 @@ export const levels:Array<Props> = [
       content: "}"},
     ],
     answer: ['space-around', 'end'],
-    help: "Hint: Have you tried space-between?"
+    help: "Hint: Have you tried space-____?"
   },
   {
     level: 2,
