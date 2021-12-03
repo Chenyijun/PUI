@@ -35,7 +35,7 @@ export const Attack = styled.div<attackProps>`
   background-repeat: ${props => !props.multiple && 'no-repeat'};
   background-position: ${props => props.type === 'heal' ? 'bottom' : 'center'};
   grid-column-start: ${props => (props.level === 2 && props.cssInput) || (props.level === 3 && '2')};
-  grid-row: ${props => props.level === 3 && `1 / ${props.cssInput}`|| props.level === 5 && props.cssInput};
+  grid-row: ${props => (props.level === 3 && `1 / ${props.cssInput}`)|| (props.level === 5 && props.cssInput)};
   grid-column: ${props => props.level === 5 && props.cssInput2};
   z-index: 2;
 `
