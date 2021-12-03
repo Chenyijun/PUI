@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {MapFlexOverlay, MapFlexWrapper, Character, MapWrapper, Square, Attack, Shop, Sparkles, Ground, FlexCharacters, FlexMap, ResponsiveMap} from './components/mapComponents'
+import {Character, Square, Attack, Shop, Sparkles, Ground, FlexCharacters, FlexMap, ResponsiveMap} from './components/mapComponents'
 
 type Props = {
   level: number,
@@ -12,7 +12,7 @@ const WorldMap:FC<Props> = ({level, cssInput, cssInput2, correct}) => {
     return (
       <ResponsiveMap>
       {correct && <Sparkles src="https://c.tenor.com/ZoZqWaSnN5UAAAAi/diwali-sparkles-stars.gif"></Sparkles>}
-        <FlexCharacters cssInput={cssInput} cssInput2={cssInput2}>
+        <FlexCharacters level={1} cssInput={cssInput} cssInput2={cssInput2}>
           <Character><img src="warrior.svg" alt='warrior'/></Character>
           <Character><img src="healer.svg" alt='healer'/></Character>
           <Character><img src="mage.svg" alt='mage'/></Character>
@@ -63,6 +63,41 @@ const WorldMap:FC<Props> = ({level, cssInput, cssInput2, correct}) => {
           <Square player='healer'></Square>
           <Square></Square>
           <Square monster></Square>
+        </Ground>
+      </ResponsiveMap>
+    )
+  }
+  if (level === 4){
+    return (
+      <ResponsiveMap>
+      {correct && <Sparkles src="https://c.tenor.com/ZoZqWaSnN5UAAAAi/diwali-sparkles-stars.gif"></Sparkles>}
+        <FlexCharacters level={4} cssInput={cssInput}>
+          <Character><img src="warrior.svg" alt='warrior'/></Character>
+          <Character><img src="healer.svg" alt='healer'/></Character>
+      </FlexCharacters>
+      <FlexMap>
+        <Character><img src="slime.svg" alt='slime monster'/></Character>
+      </FlexMap>
+      </ResponsiveMap>
+    )
+  }
+  if (level === 5){
+    return (
+      <ResponsiveMap>
+        {correct && <Sparkles src="https://c.tenor.com/ZoZqWaSnN5UAAAAi/diwali-sparkles-stars.gif"></Sparkles>}
+        <Ground>
+          <Attack type='heal' level={5} cssInput={cssInput} cssInput2={cssInput2}></Attack>
+        </Ground>
+        <Ground>
+          <Square player='healer'></Square>
+          <Square></Square>
+          <Square></Square>
+          <Square ></Square>
+          <Square></Square>
+          <Square></Square>
+          <Square monster></Square>
+          <Square></Square>
+          <Square player='warrior'></Square>
         </Ground>
       </ResponsiveMap>
     )

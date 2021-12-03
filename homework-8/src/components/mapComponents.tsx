@@ -1,39 +1,5 @@
 import styled from 'styled-components'
 
-export const MapWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: 1px;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  width: 50%;
-  height: 70%;
-`
-interface flexProps {
-  cssInput?: string
-  cssInput2?: string
-}
-export const MapFlexOverlay = styled.div<flexProps>`
-  display: flex;
-  position: absolute;
-  top: 28.5%;
-  left: 50%;
-  width: 50%;
-  height: 71.5%;
-  justify-content: ${props => props.cssInput};
-  align-items: ${props => props.cssInput2};
-  padding: 1rem;
-  box-sizing: border-box;
-`
-
-export const MapFlexWrapper = styled(MapFlexOverlay)`
-  background: #bb9e78;
-  justify-content: space-around;
-  align-items: end;
-`
-
 interface mapSquare {
   monster?: boolean,
   attack?:boolean,
@@ -58,16 +24,19 @@ export const Square = styled.div<mapSquare>`
 interface attackProps {
   level: number
   cssInput?: string
+  cssInput2?: string
   multiple?: boolean
+  type?: string
 }
 
 export const Attack = styled.div<attackProps>`
-  background-image: url(/fireball.svg);
-  background-size: 75px;
+  background-image: ${props => props.type === 'heal' ? 'url(/heal.svg)' : 'url(/fireball.svg)'};
+  background-size: ${props => props.type === 'heal' ? 'contain' : '75px'};
   background-repeat: ${props => !props.multiple && 'no-repeat'};
-  background-position: center;
-  grid-column-start: ${props => props.level === 2 ? props.cssInput : '2'};
-  grid-row: ${props => props.level === 3 && `1 / ${props.cssInput}`};
+  background-position: ${props => props.type === 'heal' ? 'bottom' : 'center'};
+  grid-column-start: ${props => (props.level === 2 && props.cssInput) || (props.level === 3 && '2')};
+  grid-row: ${props => props.level === 3 && `1 / ${props.cssInput}`|| props.level === 5 && props.cssInput};
+  grid-column: ${props => props.level === 5 && props.cssInput2};
   z-index: 2;
 `
 interface shopProps {
@@ -134,9 +103,16 @@ export const FlexMap = styled(FlexGround)`
   align-items: end;
 `
 
+interface flexProps {
+  level: number
+  cssInput?: string
+  cssInput2?: string
+}
+
 export const FlexCharacters = styled(FlexGround)<flexProps>`
-  justify-content: ${props => props.cssInput};
-  align-items: ${props => props.cssInput2};
+  justify-content: ${props => props.level === 1 ? props.cssInput : 'start'};
+  align-items: ${props => props.level === 1 ? props.cssInput2: 'center'};
+  flex-direction: ${props => props.level === 4 && props.cssInput};
 `
 
 export const ResponsiveMap = styled.div`
