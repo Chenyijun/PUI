@@ -3,7 +3,8 @@ import ReactTooltip from 'react-tooltip';
 interface editorProps {
   type: string,
   content: string,
-  indent?: boolean
+  indent?: boolean,
+  aria?: string
 }
 
 interface Props {
@@ -100,10 +101,12 @@ export const levels:Array<Props> = [
       indent: true},
       {type: 'input',
       content: 'justify-content:',
-      indent: true},
+      indent: true,
+      aria: 'justify content'},
       {type: 'input2',
       content: 'align-items:',
-      indent: true},
+      indent: true,
+      aria: 'align items'},
       {type: 'text',
       content: "}"},
     ],
@@ -135,7 +138,8 @@ export const levels:Array<Props> = [
       content: "#fireball {"},
       {type: 'input',
       content: 'grid-column-start:',
-      indent: true},
+      indent: true,
+      aria: 'grid column start'},
       {type: 'text',
       content: '}'}
     ],
@@ -169,7 +173,8 @@ export const levels:Array<Props> = [
       indent: true},
       {type: 'input',
       content: 'grid-row: 1 / ',
-      indent: true},
+      indent: true,
+      aria: 'grid row'},
       {type: 'text',
       content: '}'}
     ],
@@ -195,7 +200,8 @@ export const levels:Array<Props> = [
       indent: true},
       {type: 'input',
       content: 'flex-direction:',
-      indent: true},
+      indent: true,
+      aria: 'flex direction'},
       {type: 'text',
       content: "}"},
     ],
@@ -227,10 +233,12 @@ export const levels:Array<Props> = [
       content: "#heal {"},
       {type: 'input',
       content: "grid-column: ",
-      indent: true},
+      indent: true,
+      aria: 'grid column'},
       {type: 'input2',
       content: 'grid-row:',
-      indent: true},
+      indent: true,
+      aria: 'grid row'},
       {type: 'text',
       content: '}'}
     ],
