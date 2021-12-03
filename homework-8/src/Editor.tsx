@@ -16,7 +16,6 @@ type EditorProps = {
 type InputEvent = ChangeEvent<HTMLInputElement>;
 
 const Editor:FC<Props> = ({editor, setCssInput, setCssInput2}) => {
-  console.log(editor)
   return (
     <EditorWrapper>
       {editor.map((line, i) => {

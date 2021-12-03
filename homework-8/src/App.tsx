@@ -7,12 +7,17 @@ import './App.css'
 import { getLevelInfo } from "./levels";
 
 const App:FC = () => {
-  let [level, setLevel] = useState<number>(0)
+  let [level, setLevel] = useState<number>(1)
   let [cssInput, setCssInput] = useState<string>('')
   let [cssInput2, setCssInput2] = useState<string>('')
   let [correctAnswer, setCorrectAnswer] = useState<boolean>(false)
-  const levelInfo = getLevelInfo(level)
+  let [showLevels, setShowLevels] = useState<boolean>(false)
+  const levelInfo = getLevelInfo(level-1)
   let completedLevels:Array<number> = JSON.parse(localStorage.getItem('levels') || "[]")
+
+  const isComplete = () => {
+    completedLevels.includes(levelInfo.level)
+  }
 
   const setComplete = () => {
     setCorrectAnswer(true)
@@ -46,22 +51,22 @@ const App:FC = () => {
           <h1 data-tip='Welcome!'>CSS Adventure</h1>
           <ReactTooltip />
           <LevelWrapper>
-            <StyledButton disabled={level===0} onClick={()=>setLevel(level-1)}>◄</StyledButton>
+            <StyledButton disabled={level===1} onClick={()=>setLevel(level-1)}>◄</StyledButton>
             <p>{levelInfo.level}</p>
-            <StyledButton disabled={level===1} onClick={()=>setLevel(level+1)}>►</StyledButton>
+            <StyledButton disabled={level===2} onClick={()=>setLevel(level+1)}>►</StyledButton>
           </LevelWrapper>
         </Header>
         <Instructions>{levelInfo.instructions}</Instructions>
         <Editor editor={levelInfo.editor} setCssInput={setCssInput} setCssInput2={setCssInput2} />
         <Footer>
           <StyledButton>Help</StyledButton>
-          <StyledButton disabled={!correctAnswer || level===1} onClick={()=>setLevel(level+1)}>Next</StyledButton>
+          <StyledButton disabled={!correctAnswer || level===2} onClick={()=>setLevel(level+1)}>Next</StyledButton>
         </Footer>
       </LeftWrapper>
       <RightWrapper>
         <CharacterChat>
           <CharacterImage src="characterIcon.png" alt='Warrior'></CharacterImage>
-          <Text>{levelInfo.characterText}</Text>
+          <Text small={levelInfo.characterText.length > 150}>{levelInfo.characterText}</Text>
         </CharacterChat>
         <WorldMap level={levelInfo.level} cssInput={cssInput} cssInput2={cssInput2} correct={correctAnswer}/>
       </RightWrapper>

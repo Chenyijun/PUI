@@ -1,16 +1,22 @@
 import styled from 'styled-components'
 
+//792px width
+
 export const AppWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 100%;
   width: 100%;
   font-family: 'Century Gothic', sans-serif;
+  @media (max-width: 768px) {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+  }
 `
 
 export const LeftWrapper = styled.div`
   display: grid;
-  grid-template-rows: max-content max-content auto max-content;
+  grid-template-rows: 60px 140px auto max-content;
 `
 
 export const Header = styled.div`
@@ -41,7 +47,10 @@ export const Footer = styled.div`
 
 export const RightWrapper = styled.div`
   display: grid;
-  grid-template-rows: 30% 70%;
+  grid-template-rows: 200px auto;
+  @media (max-width: 768px) {
+    order: -1;
+  }
 `
 export const CharacterChat = styled.div`
   background: #8AB0AE;
@@ -51,7 +60,12 @@ export const CharacterChat = styled.div`
   grid-gap: 1rem;
 `
 
-export const Text = styled.p`
+interface textProps {
+  small?: boolean
+}
+export const Text = styled.p<textProps>`
+  margin: 0;
+  font-size: ${props => props.small ? '.85rem' : '1rem'};
 `
 
 export const CharacterImage = styled.img`
