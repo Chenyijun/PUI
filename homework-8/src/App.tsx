@@ -93,15 +93,15 @@ const App:FC = () => {
           <h1>CSS Adventure</h1>
           <LevelWrapper>
             <StyledButton disabled={level===1} onClick={()=>setLevel(level-1)}>◄</StyledButton>
-            <StyledButton onClick={()=>setShowLevels(true)}>{levelInfo.level}</StyledButton>
-            <StyledButton disabled={level===2} onClick={()=>setLevel(level+1)}>►</StyledButton>
+            <StyledButton onClick={()=>setShowLevels(true)}>Level {levelInfo.level} out of {gameLevels.length}</StyledButton>
+            <StyledButton disabled={level === gameLevels.length} onClick={()=>setLevel(level+1)}>►</StyledButton>
           </LevelWrapper>
         </Header>
         <Instructions>{levelInfo.instructions}</Instructions>
         <Editor editor={levelInfo.editor} cssInput={cssInput} cssInput2={cssInput2} setCssInput={setCssInput} setCssInput2={setCssInput2} />
         <Footer>
           <StyledButton onClick={()=>setShowHelp(true)}>Help</StyledButton>
-          <StyledButton disabled={!correctAnswer || level===2} onClick={()=>setLevel(level+1)}>Next</StyledButton>
+          <StyledButton disabled={!correctAnswer || level === gameLevels.length} onClick={()=>setLevel(level+1)}>Next</StyledButton>
         </Footer>
       </LeftWrapper>
       <RightWrapper>

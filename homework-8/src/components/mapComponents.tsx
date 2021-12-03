@@ -35,16 +35,16 @@ export const MapFlexWrapper = styled(MapFlexOverlay)`
 `
 
 interface mapSquare {
-  player?: boolean,
   monster?: boolean,
   attack?:boolean,
+  player?: string
 }
 export const Square = styled.div<mapSquare>`
   background: #bb9e78;
   height: 100%;
   width: 100%;
   ${(props) => (props.player || props.monster) && 
-    `background-image: ${props.player ? 'url(/mage.svg)' : 'url(/slime.svg)'};
+    `background-image: ${props.player ? `url(/${props.player}.svg)`: 'url(/slime.svg)'};
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;`
@@ -56,15 +56,18 @@ export const Square = styled.div<mapSquare>`
 `
 
 interface attackProps {
+  level: number
   cssInput?: string
+  multiple?: boolean
 }
 
 export const Attack = styled.div<attackProps>`
   background-image: url(/fireball.svg);
   background-size: 75px;
-  background-repeat: no-repeat;
+  background-repeat: ${props => !props.multiple && 'no-repeat'};
   background-position: center;
-  grid-column-start: ${props => props.cssInput};
+  grid-column-start: ${props => props.level === 2 ? props.cssInput : '2'};
+  grid-row: ${props => props.level === 3 && `1 / ${props.cssInput}`};
   z-index: 2;
 `
 interface shopProps {

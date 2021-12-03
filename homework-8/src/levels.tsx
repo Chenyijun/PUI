@@ -22,7 +22,9 @@ const cssExplanations = {
   'alignItems': 'Aligns items along the cross-axis',
   'alignItemsExamples':'center | start | end | flex-start | flex-end| baseline',
   'columnStart': "specify grid item's start position",
-  'columnStartExamples': 'auto | # | span #'
+  'columnStartExamples': 'auto | # | span #',
+  'gridRow': 'Shorthand for grid-row-start + grid-row-end',
+  'gridRowExamples': ' auto | # / # | # / span #'
 }
 
 const lvl1instructions = (
@@ -44,6 +46,15 @@ const lvl2instructions = (
     <ReactTooltip id='start' aria-haspopup='true'>
       <p>{cssExplanations.columnStart}</p>
       <p>{cssExplanations.columnStartExamples}</p>
+    </ReactTooltip>
+  </>
+)
+const lvl3instructions = (
+  <>
+    <p>Use <b data-tip data-for='row'>grid-row</b> to create a firewall between the monster and our party</p>
+    <ReactTooltip id='row' aria-haspopup='true'>
+      <p>{cssExplanations.gridRow}</p>
+      <p>{cssExplanations.gridRowExamples}</p>
     </ReactTooltip>
   </>
 )
@@ -102,6 +113,41 @@ export const levels:Array<Props> = [
       content: '}'}
     ],
     answer: ['3']
+  },
+  {
+    level: 3,
+    type: 'grid',
+    instructions: lvl3instructions,
+    characterText: "Let's not let the monsters get any closer! Mage please cast <Firewall> to prevent them from approaching.",
+    editor: [
+      {type: 'text',
+      content: ".fields {"},
+      {type: 'text',
+      content: 'display: grid;',
+      indent: true},
+      {type: 'text',
+      content: 'grid-template-columns: 1fr 1fr 1fr;',
+      indent: true},
+      {type: 'text',
+      content: 'grid-template-rows: 1fr 1fr 1fr;',
+      indent: true},
+      {type: 'text',
+      content: '}'},
+      {type: 'text',
+      content: ''},
+      {type: 'text',
+      content: "#fireball {"},
+      {type: 'text',
+      content: "grid-column-start: 2;",
+      indent: true},
+      {type: 'input',
+      content: 'grid-row: 1 / ',
+      indent: true},
+      {type: 'text',
+      content: '}'}
+    ],
+    answer: ['span 3'],
+    help: 'Another way to do it is grid-row: 1 / -1;'
   }
 ]
 

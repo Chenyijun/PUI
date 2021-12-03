@@ -75,7 +75,7 @@ export const CharacterImage = styled.img`
 
 export const LevelWrapper = styled.div`
   display: grid;
-  grid-template-columns: min-content min-content min-content;
+  grid-template-columns: min-content max-content min-content;
   height: fit-content;
   align-items: center;
   grid-gap: .25rem;
